@@ -32,11 +32,6 @@ jobs:
         run: pytest --cov=your_package --cov-report=xml
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          args: >
-            -Dsonar.organization=cloudlocust
-            -Dsonar.projectKey=cloudlocust_test_SonarCloud
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+        uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
